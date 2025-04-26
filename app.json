@@ -1,0 +1,25 @@
+{
+  "name": "your-app-name",
+  "description": "A Flask app for performing rclone copyurl operations with dynamic configuration.",
+  "repository": "https://github.com/yourusername/your-repo",
+  "keywords": ["flask", "rclone", "heroku"],
+  "scripts": {
+    "postdeploy": "pip install rclone && python app.py"
+  },
+  "env": {
+    "RCLONE_CONFIG_URL": {
+      "description": "URL to the rclone configuration file",
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
